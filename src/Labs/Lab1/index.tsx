@@ -85,7 +85,7 @@ export default function Lab1() {
     	<td>85</td>  
     </tr>  
     <tr>  
-        <td>Q1</td>  
+        <td>Q5</td>  
         <td>HTML</td>  
         <td>2/3/21</td>  
     	<td>85</td>  
