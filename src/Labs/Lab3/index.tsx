@@ -19,6 +19,12 @@ import Spreading from "./Spreading";
 import Destructing from "./Destructing";
 import FunctionDestructing from "./FunctionDestructing";
 import DestructingImports from "./DestructingImports";
+import Classes from "./Classes";
+import Styles from "./Styles";
+import Add from "./Add";
+import Square from "./Square";
+import HighLight from "./HighLight";
+import PathParameters from "./PathParameters";
 
 export default function Lab3() {
     return (
@@ -45,6 +51,20 @@ export default function Lab3() {
             <Destructing />
             <FunctionDestructing />
             <DestructingImports />
+            <Classes />
+            <Styles />
+            <Add a={2} b={3} />
+            <h4><HighLight>Square of 4</HighLight></h4>
+            Square of 4 = <Square>4</Square>
+            <br />
+            Square of 8 = <Square>8</Square>
+            <hr />
+            <HighLight>
+                Lorem ipsum dolor sit, amet consectetur adipisicing 
+                elit. Reiciendis ab ad aut placeat consequuntur 
+                sint totam sed necessitatibus nesciunt praesentium!
+            </HighLight>
+            <PathParameters />
         </div>
     );
 }

@@ -1,8 +1,12 @@
 import LessonControlButtons from "../../LessonControlButtons";
 import ModulesControls from "./ModulesControls";
 import { BsGripVertical } from "react-icons/bs";
-
+import { useParams } from "react-router";
+import * as db from "../../Database"; 
 export default function Modules() {
+    const { cid } = useParams();
+    const modules = db.modules;
+
     return (
     <div>
     {/* Implement Collapse All button, View Progress button, etc. */}
@@ -10,18 +14,23 @@ export default function Modules() {
 <br />
 <br />
     <ul className="mt-2 list-group rounded-0 w-100">
-        <li className="wd-module list-group-item p-0
+        {modules.filter((module) => module.course === cid)
+        .map((module) => (
+            <li 
+            key={module._id}
+            className="wd-module list-group-item p-0
         mb-5 fs-5 border-gray">
             <div className="wd-title p-3 ps-2 bg-secondary">
-            <BsGripVertical className="me-2 fs-3" />Week 1 </div>
+            <BsGripVertical className="me-2 fs-3" />{module.name}</div>
                 <ul className="wd-lessons list-group rounded-0">
-                    <li className="wd-lessons list-group-item p-3 ps-1">
-                        LESSON 1 <LessonControlButtons /></li>
-                    <li className="wd-lesson list-group-item p-3 ps-1">
-                        LESSON 2 <LessonControlButtons /></li>
+                    {module.lessons && module.lessons.map((lesson) => (<li className="wd-lessons list-group-item p-3 ps-1">
+                        {lesson.name} <LessonControlButtons /></li>))}
+                    {/* <li className="wd-lesson list-group-item p-3 ps-1">
+                        LESSON 2 <LessonControlButtons /></li> */}
                 </ul>
                 </li>
-                    <li className="wd-module list-group-item p-0
+                ))} 
+                    {/* <li className="wd-module list-group-item p-0
                     mb-5 fs-5 border-gray">
             <div className="wd-title p-3 ps-2 bg-secondary">
                 <BsGripVertical className="me-2 fs-3" />
@@ -34,7 +43,7 @@ export default function Modules() {
                     <li className="wd-lesson list-group-item p-3 ps-1">
                         LESSON 2 <LessonControlButtons /></li>
                 </ul>
-                </li>
+                </li>  */}
                 </ul>
     </div>
     );
