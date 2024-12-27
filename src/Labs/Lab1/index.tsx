@@ -1,13 +1,16 @@
 import { useSelector } from "react-redux";
 
 export default function Lab1() {
-    const { message } = useSelector(
-        (state: any) => state.helloReducer);
+    const { message } = useSelector((state: any) => state.helloReducer);
+    const { sum } = useSelector((state: any) => state.addReducer);
+    const { count } = useSelector((state: any) => state.counterReducer);
     return (<div id="wd-lab1">
         <h2>Lab 1</h2>
         <h3>HTML Examples</h3>
         {message}
         <div id="wd-h-tag">
+            <h2>SUM: {sum}</h2>
+            <h2>COUNT: {count}</h2>
             <h4>Heading Tags</h4>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta eius reiciendis voluptatum molestias
              sit blanditiis doloribus praesentium qui consequuntur numquam rem cumque saepe debitis laboriosam 
