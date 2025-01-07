@@ -4,14 +4,14 @@ import Home from "./Home";
 import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/Editor";
 import CoursesNavigation from "./Navigation";
-import { courses } from "../Database";
+// import { courses } from "../Database";
 import { FaAlignJustify } from "react-icons/fa6";
 import PeopleTable from "./People/Table";
 
-export default function Courses() {
+export default function Courses({ courses }: {courses: any;}) {
     const { cid } = useParams();
     // const parameters = useParams();
-    const course = courses.find((course) => course._id === cid); // let's find the course 
+    const course = courses.find((course: any) => course._id === cid); // let's find the course 
     return (
     <div id="wd-courses">
    <h2 className="text-danger">
